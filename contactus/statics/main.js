@@ -1,4 +1,5 @@
 $(document).on("submit", "#post-form", function (e) {
+    e.preventDefault();
     $.ajax({
       type: "POST",
       url: "{%url 'index' %}",
@@ -12,7 +13,7 @@ $(document).on("submit", "#post-form", function (e) {
       },
       success: function (json) {
         document.getElementById("post-form").reset();
-        alert("success");
+        
       },
       error: function (xhr, errmsg, err) {
         console.log(xhr.status + ": " + xhr.resposeText);
